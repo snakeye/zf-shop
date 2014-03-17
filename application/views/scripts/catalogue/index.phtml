@@ -1,0 +1,35 @@
+<h1>Product catalogue</h1>
+
+<div class="ajax-load products">
+    <div class="row">
+        <?php foreach ($this->paginator as $product) : ?>
+            <?php
+            $href = $this->url(array('product' => $product->id), 'product');
+            ?>
+            <div class="product col-md-3">
+                <h2><?= $product->name ?></h2>
+
+                <p class="price"><?= $this->price($product->price) ?></p>
+
+                <p class="product-image">
+                    <a href="<?= $href ?>"><img src="/i/product-image.jpg" alt="Picture of <?= $product->name ?>"
+                                                class="img-responsive"/></a>
+                </p>
+
+                <p class="text-center buttons">
+                    <a href="<?= $href ?>" class="btn btn-default">Product details</a>
+
+                    <a href="<?= $this->url(array('controller' => 'cart', 'action' => 'add', 'product' => $product->id), 'default') ?>"
+                       class="btn btn-cart">
+                        Add to cart
+                    </a>
+                </p>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>
+
+<?=
+$this->paginationControl($this->paginator, 'Sliding', array('pagination_control.phtml', 'default'),
+    array('class' => 'hidden'));
+?>

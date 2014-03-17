@@ -1,7 +1,204 @@
+@import url(http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&subset=latin,latin-ext);
 @import "bootstrap";
 @import "functions";
 @import "sticky-footer";
 
-html, body {
+@color-text: #4d5056;
+@color-dark-gray: #303132;
+@color-light-gray: #c0c2c5;
+@color-orange: #ff9039;
 
+html, body {
+  background: #f9f9f9;
+  color: @color-text;
+  font-family: 'Dosis', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Dosis', sans-serif;
+}
+
+a {
+  color: @color-light-gray;
+  text-decoration: none;
+
+  &:hover {
+    color: @color-orange;
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+    text-decoration: none;
+  }
+}
+
+header {
+  padding-top: 30px;
+  border-bottom: 1px solid @color-light-gray;
+
+  nav {
+    margin-top: 20px;
+    border-top: 3px solid @color-dark-gray;
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+
+    li {
+      display: inline-block;
+      border-bottom: 4px solid transparent;;
+
+      &.active {
+        border-color: @color-orange;
+
+        a {
+          color: @color-orange;
+        }
+      }
+    }
+
+    a {
+      display: block;
+      padding: 10px 50px;
+      text-transform: uppercase;
+      color: @color-dark-gray;
+    }
+
+  }
+}
+
+#content {
+  padding: 30px 0;
+}
+
+footer {
+  background: #f5f5f5;
+  color: #555;
+  border-top: 1px solid #eee;
+  padding-top: 30px;
+  font-style: italic;
+}
+
+.teasers {
+  margin-bottom: 30px;
+
+  .teaser {
+    display: block;
+    padding: 10px 20px;
+    margin: 5px;
+    border: 1px solid #eee;
+    color: inherit;
+
+    .price {
+      font-size: 200%;
+      font-weight: 500;
+    }
+
+    &:hover {
+      background: @color-orange;
+    }
+  }
+}
+
+.last-news {
+  list-style: none;
+  padding: 0;
+
+  h3 {
+    font-size: 120%;
+  }
+}
+
+.btn-cart {
+  color: @color-dark-gray;
+  border-color: @color-light-gray;
+
+  i {
+    vertical-align: middle;
+    margin-left: 10px;
+  }
+
+  &:hover {
+    background: @color-orange;
+  }
+}
+
+.products {
+  .product {
+    img {
+      border: 1px solid #eee;
+    }
+
+    .price {
+      font-size: 140%;
+      font-weight: 500;
+    }
+  }
+}
+
+.product-page {
+
+  img {
+    border: 1px solid #eee;
+  }
+
+  .price {
+    font-size: 200%;
+    font-weight: 500;
+  }
+}
+
+.shopping-cart {
+  margin-bottom: 30px;
+
+  .product a {
+    color: @color-text;
+  }
+
+  .quantity {
+    font-size: 120%;
+    margin: 0 5px;
+  }
+
+  .price {
+    font-size: 120%;
+    font-weight: 500;
+  }
+
+  .delete {
+    width: 80px;
+    text-align: center;
+
+    a {
+      color: @color-dark-gray;
+    }
+  }
+
+  .value {
+    text-align: right;
+    padding-right: 10px;
+  }
+
+  tfoot {
+    .price {
+      font-size: 160%;
+    }
+  }
+}
+
+.cart-count {
+  font-size: 120%;
+  font-weight: 500;
+}
+
+.btn-primary {
+  background: @color-orange;
+  border-color: @color-orange;
+}
+
+@import "sprite";

@@ -1,1 +1,55 @@
-index
+<div class="jumbotron">
+    <h1>Welcome to ZF Shop!</h1>
+</div>
+
+<h2>Popular products</h2>
+
+<div class="row teasers">
+    <?php foreach ($this->products as $product) : ?>
+        <div class="col-md-4">
+            <a href="<?= $this->url(array('product' => $product->id), 'product') ?>" class="teaser">
+                <h4><?= $product->name ?></h4>
+
+                <p class="price"><?= $this->price($product->price) ?></p>
+            </a>
+        </div>
+    <?php endforeach; ?>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <h2>About the shop</h2>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum adipiscing malesuada massa, eget
+            imperdiet sem lobortis vitae. Aenean vestibulum sem non nisl ullamcorper, scelerisque dignissim justo
+            gravida. Aliquam erat volutpat. Aenean lacinia, quam in faucibus luctus, nunc felis mollis nibh, non
+            consequat enim quam vel sapien. Morbi pellentesque, turpis at placerat venenatis, nibh elit dapibus mi, in
+            bibendum justo nisl eget justo. Donec vulputate dignissim purus, id pretium metus vulputate malesuada.
+            Vivamus porttitor lectus nec velit sodales laoreet. Etiam lacinia odio nec mi egestas scelerisque.
+        </p>
+
+        <p>
+            Integer imperdiet sodales iaculis. Cras lorem augue, imperdiet sed leo nec, euismod tincidunt augue. Sed
+            dignissim enim a convallis facilisis. Quisque vitae lobortis eros. Maecenas feugiat diam libero, et auctor
+            lorem vulputate a. Nam sagittis tincidunt risus, quis imperdiet tortor suscipit id. Nullam quis mi sit amet
+            lorem pretium blandit. Aenean pretium egestas erat eget pretium.
+        </p>
+    </div>
+
+    <aside class="col-md-4">
+        <h2>Latest news</h2>
+
+        <ul class="last-news">
+            <li>
+                <h3>Phasellus eu nibh sem.</h3>
+                Praesent in sem massa. Pellentesque pulvinar viverra justo, vel semper orci suscipit ut.
+            </li>
+            <li>
+                <h3>Phasellus eu nibh sem.</h3>
+                Praesent in sem massa. Pellentesque pulvinar viverra justo, vel semper orci suscipit ut.
+            </li>
+        </ul>
+
+    </aside>
+</div>

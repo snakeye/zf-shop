@@ -1,0 +1,21 @@
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4">
+                <a href="/" id="logo"><img src="/i/logo.png" alt="ZF Shop"/></a>
+            </div>
+            <div class="col-xs-8 text-right">
+                <a href="/cart" class="btn btn-cart">
+                    Shopping cart
+                    <?= $this->cartCount() ?>
+                    <i class="ic-cart"></i>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <nav class="col-xs-12">
+                <?= $this->navigation()->menu() ?>
+            </nav>
+        </div>
+    </div>
+</header>

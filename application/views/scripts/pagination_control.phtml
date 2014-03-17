@@ -1,0 +1,11 @@
+<div class="pagination <?= $this->class ?>">
+    <ul>
+        <?php foreach ($this->pagesInRange as $page): ?>
+            <?php if ($page == $this->current) : ?>
+                <li class="active"><span><?= $page ?></span></li>
+            <?php else : ?>
+                <li><a href="<?= $this->url(array('page' => $page)) ?>" class="paginate_button"><?= $page ?></a></li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </ul>
+</div>

@@ -1,0 +1,75 @@
+<h1>Shopping cart</h1>
+
+<?php if (empty($this->cart)) : ?>
+    <h2>The cart is empty</h2>
+
+    <p class="text-right">
+        <a href="<?= $this->url(array('controller' => 'catalogue', 'action' => 'index')) ?>" class="btn btn-primary">Back
+            to shopping</a>
+    </p>
+<?php else : ?>
+    <?php $total = 0; ?>
+    <table class="table table-striped table-responsive shopping-cart">
+        <thead>
+        <tr>
+            <th>Item</th>
+            <th class="value">Quantity</th>
+            <th class="value">Item price</th>
+            <th class="value">Total</th>
+            <th class="delete"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($this->cart as $row) : ?>
+            <?php
+            $product = $row['product'];
+            $quantity = $row['quantity'];
+            $price = $product->price * $quantity;
+            $total += $price;
+            ?>
+            <tr>
+                <td class="product">
+                    <a href="<?= $this->url(array('product' => $product->id), 'product') ?>"><?= $product->name ?></a>
+                </td>
+                <td class="value">
+                    <?php if ($quantity > 1) : ?>
+                        <a href="<?= $this->url(array('controller' => 'cart', 'action' => 'remove', 'product' => $product->id)) ?>"
+                           title="Decrease quantity"><span class="glyphicon glyphicon-minus-sign"></span></a>
+                    <?php endif; ?>
+                    <span class="quantity"><?= $quantity ?></span>
+                    <a href="<?= $this->url(array('controller' => 'cart', 'action' => 'add', 'product' => $product->id)) ?>"
+                       title="Increase quantity"><span class="glyphicon glyphicon-plus-sign"></span></a>
+                </td>
+                <td class="value">
+                    <?= $this->price($product->price) ?>
+                </td>
+                <td class="value price">
+                    <?= $this->price($price) ?>
+                </td>
+                <td class="delete">
+                    <a href="<?= $this->url(array('controller' => 'cart', 'action' => 'delete', 'product' => $product->id)) ?>"
+                       title="Remove from cart"><span class="glyphicon glyphicon-trash"></span></a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+        <tfoot>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th class="value price">
+                <?= $this->price($total) ?>
+            </th>
+            <th></th>
+        </tr>
+        </tfoot>
+    </table>
+
+    <p class="text-right">
+        <a href="<?= $this->url(array('controller' => 'catalogue', 'action' => 'index')) ?>" class="btn btn-default">Back
+            to shopping</a>
+        <a href="#" class="btn btn-primary">Proceed to checkout</a>
+    </p>
+
+<?php endif; ?>

@@ -7,7 +7,14 @@
     <?= $this->headLink(); ?>
 </head>
 <body>
-<?= $this->layout()->content ?>
+<div id="page_wrap">
+    <?= $this->partial('partials/header.phtml') ?>
+    <section id="content" class="container">
+        <?= $this->layout()->content ?>
+    </section>
+    <div class="push"></div>
+</div>
+<?= $this->partial('partials/footer.phtml') ?>
 <?= $this->headScript(); ?>
 </body>
 </html>
