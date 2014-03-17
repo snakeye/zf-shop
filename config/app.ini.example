@@ -1,0 +1,53 @@
+[production]
+phpSettings.display_startup_errors = 0
+phpSettings.display_errors = 0
+
+; cache
+resources.cachemanager.cache.frontend.name = Core
+resources.cachemanager.cache.frontend.customFrontendNaming = false
+resources.cachemanager.cache.frontend.options.lifetime = 10
+resources.cachemanager.cache.frontend.options.automatic_serialization = true
+resources.cachemanager.cache.frontend.options.cache_id_prefix = cr_
+resources.cachemanager.cache.backend.name = File
+resources.cachemanager.cache.backend.customBackendNaming = false
+resources.cachemanager.cache.backend.options.cache_dir = "/var/www/_tmp/zf-shop/cache"
+resources.cachemanager.cache.frontendBackendAutoload = false
+
+; logs
+resources.log.stream.writerName = "Stream"
+resources.log.stream.writerParams.stream = "/var/www/_tmp/zf-shop/app.log"
+resources.log.stream.writerParams.mode = "a"
+resources.log.stream.filterName = "Priority"
+resources.log.stream.filterParams.priority = 4
+
+; layout
+resources.layout.layout = "default"
+resources.layout.layoutPath = APPLICATION_PATH "/views/layouts"
+
+; front controller
+resources.frontController.controllerDirectory = APPLICATION_PATH "/controllers"
+resources.frontController.params.displayExceptions = 0
+
+; locale
+resources.locale.default = "en_US"
+resources.locale.cache = "cache"
+
+; view
+resources.view.doctype = "HTML5"
+resources.view.encoding = "UTF-8"
+resources.view.basePath = APPLICATION_PATH "/views/"
+resources.view.contentType = "text/html; charset=UTF-8"
+
+; database
+resources.db.adapter = PDO_MYSQL
+resources.db.params.host = localhost
+resources.db.params.username = dev
+resources.db.params.password =
+resources.db.params.dbname = zf-shop
+resources.db.params.charset = utf8
+resources.db.isDefaultTableAdapter = true
+resources.db.defaultMetadataCache = "cache"
+
+[development : production]
+phpSettings.display_startup_errors = 1
+phpSettings.display_errors = 1
