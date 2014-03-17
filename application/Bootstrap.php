@@ -26,6 +26,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $this->bootstrap('View');
         $view = $this->getResource('View');
 
+        $view->headTitle('ZF Shop');
+        $view->headTitle()->setSeparator(' - ');
+
         // styles
         $view->headLink()->appendStylesheet('/css/style.css');
 
@@ -54,10 +57,22 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
                 'route' => 'default',
             ),
             array(
-                'label' => 'Catalogue',
+                'label' => 'Products',
                 'controller' => 'catalogue',
                 'action' => 'index',
                 'route' => 'default',
+            ),
+            array(
+                'label' => 'About us',
+                'uri' => '#',
+            ),
+            array(
+                'label' => 'Shopping & Delivery',
+                'uri' => '#',
+            ),
+            array(
+                'label' => 'Contacts',
+                'uri' => '#',
             ),
         ));
 
