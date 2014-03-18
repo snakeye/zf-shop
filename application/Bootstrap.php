@@ -87,10 +87,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $router = Zend_Controller_Front::getInstance()->getRouter();
 
         // add product page route
-        $router->addRoute('product', new Zend_Controller_Router_Route('product/:product', array(
+        $router->addRoute('product', new Zend_Controller_Router_Route('product/:sku', array(
             'controller' => 'product',
             'action' => 'index',
-            'product' => 0,
+            'sku' => '',
         )));
     }
 }

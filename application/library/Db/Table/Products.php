@@ -11,12 +11,12 @@ class Db_Table_Products extends Zend_Db_Table
     /**
      * Fetch single product
      *
-     * @param $id
+     * @param string $sku
      * @return null|Zend_Db_Table_Row_Abstract
      */
-    public function fetchProduct($id)
+    public function fetchProduct($sku)
     {
-        $select = $this->select()->where('id = ?', $id);
+        $select = $this->select()->where('sku = ?', $sku);
         return $this->fetchRow($select);
     }
 

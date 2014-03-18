@@ -12,7 +12,7 @@ class ProductController extends Zend_Controller_Action
     {
         $products_table = new Db_Table_Products();
 
-        $product = $products_table->fetchProduct(intval($this->getParam('product')));
+        $product = $products_table->fetchProduct($this->getParam('sku'));
         if ($product == null) {
             throw new Zend_Controller_Action_Exception('Product not found', 404);
         }

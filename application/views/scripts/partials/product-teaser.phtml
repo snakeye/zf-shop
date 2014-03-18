@@ -1,0 +1,14 @@
+<div class="col-md-4">
+    <a href="<?= $this->url(array('sku' => $this->product->sku), 'product') ?>" class="teaser">
+        <div class="row">
+            <div class="col-md-8">
+                <h4><?= $this->product->name ?></h4>
+
+                <p class="price"><?= $this->price($this->product->price) ?></p>
+            </div>
+            <div class="col-md-4">
+                <img src="/i/product-image.png" alt="Picture of <?= $this->product->name ?>" class="img-responsive"/>
+            </div>
+        </div>
+    </a>
+</div>

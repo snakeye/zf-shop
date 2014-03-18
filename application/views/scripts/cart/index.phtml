@@ -15,6 +15,7 @@ $this->headTitle('Shopping cart');
     <table class="table table-striped table-responsive shopping-cart">
         <thead>
         <tr>
+            <th>SKU</th>
             <th>Item</th>
             <th class="value">Quantity</th>
             <th class="value">Item price</th>
@@ -31,16 +32,19 @@ $this->headTitle('Shopping cart');
             $total += $price;
             ?>
             <tr>
+                <td class="sku">
+                    <?= $product->sku ?>
+                </td>
                 <td class="product">
-                    <a href="<?= $this->url(array('product' => $product->id), 'product') ?>"><?= $product->name ?></a>
+                    <a href="<?= $this->url(array('sku' => $product->sku), 'product') ?>"><?= $product->name ?></a>
                 </td>
                 <td class="value">
                     <?php if ($quantity > 1) : ?>
-                        <a href="<?= $this->url(array('controller' => 'cart', 'action' => 'remove', 'product' => $product->id)) ?>"
+                        <a href="<?= $this->url(array('controller' => 'cart', 'action' => 'remove', 'sku' => $product->sku)) ?>"
                            title="Decrease quantity"><span class="glyphicon glyphicon-minus-sign"></span></a>
                     <?php endif; ?>
                     <span class="quantity"><?= $quantity ?></span>
-                    <a href="<?= $this->url(array('controller' => 'cart', 'action' => 'add', 'product' => $product->id)) ?>"
+                    <a href="<?= $this->url(array('controller' => 'cart', 'action' => 'add', 'sku' => $product->sku)) ?>"
                        title="Increase quantity"><span class="glyphicon glyphicon-plus-sign"></span></a>
                 </td>
                 <td class="value">
@@ -50,7 +54,7 @@ $this->headTitle('Shopping cart');
                     <?= $this->price($price) ?>
                 </td>
                 <td class="delete">
-                    <a href="<?= $this->url(array('controller' => 'cart', 'action' => 'delete', 'product' => $product->id)) ?>"
+                    <a href="<?= $this->url(array('controller' => 'cart', 'action' => 'delete', 'sku' => $product->sku)) ?>"
                        title="Remove from cart"><span class="glyphicon glyphicon-trash"></span></a>
                 </td>
             </tr>

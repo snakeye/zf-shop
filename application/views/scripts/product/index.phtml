@@ -5,22 +5,34 @@ $this->headTitle($this->product->name);
 <h1><?= $this->product->name ?></h1>
 
 <div class="row product-page">
-    <div class="col-md-3">
-        <img src="/i/product-image.jpg" alt="Picture of <?= $this->product->name ?>" class="img-responsive"/>
+    <div class="col-md-4">
+        <p>
+            <img src="/i/product-image.jpg" alt="Picture of <?= $this->product->name ?>" class="img-responsive"/>
+        </p>
+
+        <div class="row">
+            <div class="col-md-4">
+                <img src="/i/product-image.jpg" alt="Picture of <?= $this->product->name ?>" class="img-responsive"/>
+            </div>
+            <div class="col-md-4">
+                <img src="/i/product-image.jpg" alt="Picture of <?= $this->product->name ?>" class="img-responsive"/>
+            </div>
+            <div class="col-md-4">
+                <img src="/i/product-image.jpg" alt="Picture of <?= $this->product->name ?>" class="img-responsive"/>
+            </div>
+        </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-8">
         <p class="price">
             <?= $this->price($this->product->price) ?>
         </p>
 
         <p>
-            Morbi dictum posuere magna id rutrum. Nulla facilisi. Vivamus varius quam justo, a rutrum libero elementum
-            ultrices. Aenean et laoreet massa. Vivamus diam libero, scelerisque non commodo sed, dignissim at mauris.
-            Vestibulum ac erat molestie arcu ultricies rutrum at quis neque. Phasellus eget hendrerit arcu.
+            <?= $this->product->description ?>
         </p>
 
         <p>
-            <a href="<?= $this->url(array('controller' => 'cart', 'action' => 'add', 'product' => $this->product->id), 'default') ?>"
+            <a href="<?= $this->url(array('controller' => 'cart', 'action' => 'add', 'sku' => $this->product->sku), 'default') ?>"
                class="btn btn-cart">
                 Add to cart
                 <i class="ic-cart"></i>
@@ -33,13 +45,6 @@ $this->headTitle($this->product->name);
 
 <div class="row teasers">
     <?php foreach ($this->products as $product) : ?>
-        <div class="col-md-4">
-            <a href="<?= $this->url(array('product' => $product->id), 'product') ?>"
-               class="teaser">
-                <h4><?= $product->name ?></h4>
-
-                <p class="price"><?= $this->price($product->price) ?></p>
-            </a>
-        </div>
+        <?= $this->partial('partials/product-teaser.phtml', array('product' => $product)) ?>
     <?php endforeach; ?>
 </div>
